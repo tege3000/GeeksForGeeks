@@ -3,6 +3,7 @@
 using namespace std;
 
 // program for array rotation
+// my own implementation
 void rotate(int arr[], int d, int n) {
     int el;
     for(int i = 0; i < d; i++) {
