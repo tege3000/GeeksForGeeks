@@ -1,11 +1,13 @@
-#include <iostream>
-
-using namespace std;
-
-// Write a function rotate(ar[], d, n) that rotates 
+// Topic: Program for array rotation
+//
+// Description: Write a function rotate(ar[], d, n) that rotates
 // arr[] of size n by d elements.
 //
 // MY SOLUTION
+
+#include <iostream>
+
+using namespace std;
 void rotate(int arr[], int d, int n) {
     int el;
     for(int i = 0; i < d; i++) {
