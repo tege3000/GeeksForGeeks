@@ -35,9 +35,13 @@ void reverse(int arr[], int start, int end) {
 
 
 void rotate(int arr[], int d, int n) {
+    if(d == 0) {
+        return;
+    }
     reverse(arr, 0, d);
     reverse(arr, d, n);
     reverse(arr, 0, n);
+    
 }
 
 
