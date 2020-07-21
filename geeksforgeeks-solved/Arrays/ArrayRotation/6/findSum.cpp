@@ -15,29 +15,57 @@
 
 using namespace std;
 
-// After more studying, this is my second implementation
-// It works in  O(n) time. which is better than first approach
+
+// Finally came up with a third implementation
+// It is similar to the second approach, only difference
+// is it leaves the array as a rotated array instead of
+// initially sorting it.
+// It also works in O(n) time.
+
 string findSum(int arr[], int n, int x) {
+    int right = distance(arr, max_element(arr+0, arr+n));
+    int left = (right+1)%n;
     
-    sort(arr+0, arr+n);
-    int left = 0;
-    int right = n-1;
-    
-    while (left < right) {
-        if(arr[left]+arr[right] == x) {
+    while(left != right) {
+        if(arr[left] + arr[right] == x) {
             return "true";
         }
-        else if(arr[left]+arr[right] < x) {
-            left++;
+        else if(arr[left] + arr[right] < x) {
+            left = (left+1)%n;
         }
         else {
-            right--;
+            right = (n+right-1)%n;
+            
         }
     }
-    
+
     return "false";
-    
 }
+
+
+//// After more studying, this is my second implementation
+//// It works in  O(n) time. which is better than first approach
+//string findSum(int arr[], int n, int x) {
+//
+//    sort(arr+0, arr+n);
+//    int left = 0;
+//    int right = n-1;
+//
+//    while (left < right) {
+//        if(arr[left]+arr[right] == x) {
+//            return "true";
+//        }
+//        else if(arr[left]+arr[right] < x) {
+//            left++;
+//        }
+//        else {
+//            right--;
+//        }
+//    }
+//
+//    return "false";
+//
+//}
 
 
 // This is a naive solution (My first approach).
@@ -63,5 +91,4 @@ int main() {
     string ans = findSum(arr, n, x);
     
     cout << ans << endl;
-    
 }
