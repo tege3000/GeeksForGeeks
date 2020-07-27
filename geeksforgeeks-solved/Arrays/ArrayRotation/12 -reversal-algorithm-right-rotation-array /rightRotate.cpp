@@ -9,6 +9,7 @@
 
 using namespace std;
 void rightRotate(int arr[], int n, int k) {
+    k = k%n; // for larger values of k
     int newArr[n];
     int index = 0;
     for(int i = n-1; i >= 0; i--) {
