@@ -1,3 +1,11 @@
+/*
+ * Topic: Split the array and add the first part to the end
+ *
+ *
+ * Description: There is a given an array and split it from a
+ * specified position, and move the first part of array add to the end.
+ */
+
 #include <iostream>
 
 using namespace std;
