@@ -1,6 +1,7 @@
 /*
  * Topic: Move all negative numbers to beginning
- * and positive to end with constant extra space
+ * and positive to end with constant extra space.
+ * while maintaining order
  *
  */
 #include <iostream>
