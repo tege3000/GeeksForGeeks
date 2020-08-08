@@ -12,55 +12,83 @@
 
 using namespace std;
 
+// second implementation (code length reduced)
+// and uses less auxiliary arrays
 void rearrange(int arr[], int n) {
-    int neg[n];
+    int tmp[n];
+    
     int s = 0;
     
     for(int i = 0; i < n; i++) {
-        if(arr[i] < 0) {
-            neg[s] = arr[i];
-            s++;
-        }
-    }
-    for(int i = s; i < n; i++) {
-        neg[i] = 0;
-    }
-    
-    int pos[n];
-    s = 0;
-    
-    for(int i = 0; i < n; i++) {
         if(arr[i] > 0) {
-            pos[s] = arr[i];
+            tmp[s] = arr[i];
             s++;
-        }
-    }
-    for(int i = s; i < n; i++) {
-        pos[i] = 0;
-    }
-    
-    s = 0;
-    for(int i = 0; i < n; i++) {
-        if(pos[i] != 0) {
-            arr[s] = pos[i];
-            s++;
-        }
-        else {
-            break;
         }
     }
     
     for(int i = 0; i < n; i++) {
-        if(neg[i] != 0) {
-            arr[s] = neg[i];
+        if(arr[i] < 0) {
+            tmp[s] = arr[i];
             s++;
-        }
-        else {
-            break;
         }
     }
     
+    for(int i = 0; i < n; i++) {
+        arr[i] = tmp[i];
+    }
 }
+
+// Initial implementation (code is pretty long)
+//
+//void rearrange(int arr[], int n) {
+//    int neg[n];
+//    int s = 0;
+//
+//    for(int i = 0; i < n; i++) {
+//        if(arr[i] < 0) {
+//            neg[s] = arr[i];
+//            s++;
+//        }
+//    }
+//    for(int i = s; i < n; i++) {
+//        neg[i] = 0;
+//    }
+//
+//    int pos[n];
+//    s = 0;
+//
+//    for(int i = 0; i < n; i++) {
+//        if(arr[i] > 0) {
+//            pos[s] = arr[i];
+//            s++;
+//        }
+//    }
+//    for(int i = s; i < n; i++) {
+//        pos[i] = 0;
+//    }
+//
+//    s = 0;
+//    for(int i = 0; i < n; i++) {
+//        if(pos[i] != 0) {
+//            arr[s] = pos[i];
+//            s++;
+//        }
+//        else {
+//            break;
+//        }
+//    }
+//
+//    for(int i = 0; i < n; i++) {
+//        if(neg[i] != 0) {
+//            arr[s] = neg[i];
+//            s++;
+//        }
+//        else {
+//            break;
+//        }
+//    }
+//
+//}
 
 void printArr(int arr[], int n) {
     for(int i = 0; i < n; i++) {
