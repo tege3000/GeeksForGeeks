@@ -22,15 +22,25 @@ void swap(int arr[], int x, int y) {
 }
 
 void rearrange(int arr[], int n) {
-    for(int i = 0; i < n-1; i++) {
+    for(int i = 0; i < n; i++) {
         if(i%2 == 0) {
-            if(arr[i] < 0 && arr[i+1] >0) {
-                 swap(arr, i, i+1);
+            if(arr[i] < 0) {
+                for(int j  = i; j < n; j++) {
+                    if(arr[j] > 0 && !(j%2 == 0)) {
+                        swap(arr, i, j);
+                        break;
+                    }
+                }
             }
         }
         else {
-            if(arr[i] > 0 && arr[i+1] < 0) {
-                swap(arr, i, i+1);
+            if(arr[i] > 0) {
+                for(int j  = i; j < n; j++) {
+                    if(arr[j] < 0 && j%2 == 0) {
+                        swap(arr, i, j);
+                        break;
+                    }
+                }
             }
             
         }
@@ -45,6 +55,7 @@ void printArr(int arr[], int n) {
 }
 
 int main() {
+    //int arr[] =  {1, -3, 5, 6, -3, 6, 7, -4, 9, 10};
     int arr[] =  {-1, 3, -5, 6, 3, 6, -7, -4, -9, 10};
     int n = sizeof(arr)/sizeof(arr[0]);
     
@@ -52,3 +63,4 @@ int main() {
     
     printArr(arr, n);
 }
+
