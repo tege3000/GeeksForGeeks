@@ -14,24 +14,45 @@
 #include <iostream>
 
 using namespace std;
+
+// second approach
+// O(n) time complexity
+// O(1) space
 void replace(int arr[], int n) {
-    int tmp[n];
-    for(int i = 0; i < n; i++) {
-        if(i == 0) {
-            tmp[i] = arr[i] * arr[i+1];
-        }
-        else if(i == n-1) {
-            tmp[i] = arr[i] * arr[i-1];
-        }
-        else {
-            tmp[i] = arr[i-1] * arr[i+1];
-        }
+    int prev = arr[0];
+    arr[0] = arr[0] * arr[1];
+    int curr;
+    for(int i = 1; i < n-1; i++) {
+        curr = arr[i];
+        arr[i] = prev * arr[i+1];
+        prev = curr;
     }
     
-    for(int i = 0; i < n; i++) {
-        arr[i] = tmp[i];
-    }
+    arr[n-1] = arr[n-1] * prev;
 }
+
+
+//// initial approach
+//// O(n) time.
+//// uses auxiliary array; O(n) extra space
+//void replace(int arr[], int n) {
+//    int tmp[n];
+//    for(int i = 0; i < n; i++) {
+//        if(i == 0) {
+//            tmp[i] = arr[i] * arr[i+1];
+//        }
+//        else if(i == n-1) {
+//            tmp[i] = arr[i] * arr[i-1];
+//        }
+//        else {
+//            tmp[i] = arr[i-1] * arr[i+1];
+//        }
+//    }
+//
+//    for(int i = 0; i < n; i++) {
+//        arr[i] = tmp[i];
+//    }
+//}
 
 void printArr(int arr[], int n) {
     for(int i = 0; i < n; i++) {
