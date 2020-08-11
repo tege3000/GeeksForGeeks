@@ -12,24 +12,34 @@
 
 using namespace std;
 
-// first implementation
-// O(n) time
+// second implementation
+// O(nlogn) time
+// better and concise algorithm
 int findKthSmallestEl(int arr[], int n, int k) {
-    int min;
-    int max = *max_element(arr, arr+n);
-    for(int i = 0; i < k; i++) {
-        min = *min_element(arr, arr+n);
-        if(i < k-1) {
-            auto it = find(arr, arr+n, min);
-            int index = distance(arr, it);
-            if(it != arr+n) {
-                arr[index] = max;
-            }
-        }
-    }
+    sort(arr, arr+n);
     
-    return min;
+    return arr[k-1];
 }
+
+
+//// first implementation
+//// O(n) time -- now that i think about it, might not be O(n)
+//int findKthSmallestEl(int arr[], int n, int k) {
+//    int min;
+//    int max = *max_element(arr, arr+n);
+//    for(int i = 0; i < k; i++) {
+//        min = *min_element(arr, arr+n);
+//        if(i < k-1) {
+//            auto it = find(arr, arr+n, min);
+//            int index = distance(arr, it);
+//            if(it != arr+n) {
+//                arr[index] = max;
+//            }
+//        }
+//    }
+//
+//    return min;
+//}
 
 void printArr(int arr[], int n) {
     for(int i = 0; i < n; i++) {
@@ -41,7 +51,7 @@ void printArr(int arr[], int n) {
 int main() {
     int arr[] =  {7, 10, 4, 3, 20, 15};
     int n = sizeof(arr)/sizeof(arr[0]);
-    int k = 4;
+    int k = 3;
     
     int ans = findKthSmallestEl(arr, n, k);
     
