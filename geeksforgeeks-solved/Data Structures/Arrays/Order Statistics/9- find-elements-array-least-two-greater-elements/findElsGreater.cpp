@@ -11,26 +11,38 @@
 
 using namespace std;
 
-
-// initial approach
-// apparrently this is the naive approach
+// second approach
+// time complexity O(nlogn)
 void findElsGreater(int arr[], int n) {
-    int count;
-    for(int i = 0; i < n; i++) {
-        count = 0;
-        for(int j = 0; j < n; j++) {
-            if(arr[i] < arr[j]) {
-                count++;
-            }
-        }
-        
-        if(count >= 2) {
-            cout << arr[i] << " ";
-        }
+    sort(arr, arr+n);
+    
+    for(int i = 0; i < n-2; i++) {
+        cout << arr[i] << " ";
     }
     
     cout << "\n";
 }
+
+//// initial approach
+//// apparrently this is the naive approach
+//// time complexity O(n^2)
+//void findElsGreater(int arr[], int n) {
+//    int count;
+//    for(int i = 0; i < n; i++) {
+//        count = 0;
+//        for(int j = 0; j < n; j++) {
+//            if(arr[i] < arr[j]) {
+//                count++;
+//            }
+//        }
+//
+//        if(count >= 2) {
+//            cout << arr[i] << " ";
+//        }
+//    }
+//
+//    cout << "\n";
+//}
 
 void printArr(int arr[], int n) {
     for(int i = 0; i < n; i++) {
