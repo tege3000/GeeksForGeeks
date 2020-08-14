@@ -35,5 +35,6 @@ int main() {
     int n = sizeof(arr)/sizeof(arr[0]);
     
     cout << findMean(arr, n) << endl;
+    cout << findMedian(arr, n) << endl;
 }
 
