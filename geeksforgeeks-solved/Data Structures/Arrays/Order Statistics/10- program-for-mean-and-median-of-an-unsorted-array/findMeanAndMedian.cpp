@@ -17,7 +17,9 @@ float findMean(int arr[], int n) {
     return sum/n;
 }
 
+
 float findMedian(int arr[], int n) {
+    sort(arr, arr+n);
     
     int middle = (n-1)/2;
     
