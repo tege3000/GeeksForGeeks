@@ -8,6 +8,7 @@
  */
 #include <iostream>
 #include <vector>
+#include <set>
 
 using namespace std;
 
@@ -21,37 +22,40 @@ void kMaxSumOverlapping(int arr[], int n, int k) {
     int sum = 0;
     int maxSum = 0;
     int index = 0;
-    for(int i = 0; i < n; i++) {
-        if(find(sol.begin(), sol.end(), arr[i]) != sol.end()) {
-            sum = arr[i];
-           
-            for(int j = i-1; j >= index; j--) {
-                sum += arr[j];
-                maxSum = max(maxSum, sum);
+    
+    if(sol.size() < k){
+        for(int i = 0; i < n; i++) {
+            if(find(sol.begin(), sol.end(), arr[i]) != sol.end()) {
+                sum = arr[i];
+                
+                for(int j = i-1; j >= index; j--) {
+                    sum += arr[j];
+                    if(sum > k) {
+                        sol.push_back(sum);
+            
+                    }
+                    
+                }
+                
+                sum = arr[i];
+                for(int j = i+1; j < n; j++) {
+                    sum += arr[j];
+                    if(sum > k) {
+                        sol.push_back(sum);
+     
+                    }
+                }
+                
+                index = i+1;
             }
             
-            if(maxSum > k) {
-                sol.push_back(maxSum);
-            }
             
-            sum = arr[i];
-            for(int j = i+1; j < n; j++) {
-                sum += arr[j];
-                maxSum = max(maxSum, sum);
-            }
-            
-            if(maxSum > k) {
-                sol.push_back(maxSum);
-            }
-            index = i+1;
         }
-        
     }
     
-    
     sort(sol.begin(), sol.end(), greater<int>());
-    
-    for(int i = 0; i < sol.size(); i++) {
+
+    for(int i = 0; i < k; i++) {
         cout << sol[i] << " ";
     }
     
@@ -59,6 +63,7 @@ void kMaxSumOverlapping(int arr[], int n, int k) {
 }
 
 int main() {
+    //int arr[] =  {4, -8, 9, -4, 1, -8, -1, 6};
     int arr[] =  {-2, -3, 4, -1, -2, 1, 5, -3};
     int n = sizeof(arr)/sizeof(arr[0]);
     int k = 3;
