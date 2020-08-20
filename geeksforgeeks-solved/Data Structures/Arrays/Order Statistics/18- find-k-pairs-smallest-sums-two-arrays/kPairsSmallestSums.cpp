@@ -14,6 +14,11 @@ using namespace std;
 // first implementation - simple method
 // O(n1 * n2 * log (n1 * n2)) time
 void kPairsSmallestSums(int arr1[] , int arr2[], int n1, int n2, int k) {
+    if(k > n1*n2) {
+        cout <<  "cannot find solution" << endl;
+        return;
+    }
+    
     int arr[n1*n2][2];
     
     int sum[n1*n2];
