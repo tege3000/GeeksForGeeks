@@ -7,8 +7,11 @@
  * to arr1[] and other element belongs to arr2[]
  */
 #include <iostream>
+#include <vector>
 
 using namespace std;
+
+// first implementation - simple method
 void kPairsSmallestSums(int arr1[] , int arr2[], int n1, int n2, int k) {
     int arr[n1*n2][2];
     
@@ -23,11 +26,37 @@ void kPairsSmallestSums(int arr1[] , int arr2[], int n1, int n2, int k) {
         }
     }
     
+    int sums[n1*n2];
     for(int i = 0; i < n1*n2; i++) {
-        for(int j = 0; j < 2; j++) {
-            cout << arr[i][j] << " ";
+        sums[i] = arr[i][0] + arr[i][1];
+    }
+    
+    int unsortedSums[n1*n2];
+    for(int i = 0; i < n1*n2; i++) {
+        unsortedSums[i] = sums[i];
+        cout << sums[i] << " ";
+    }
+    cout << "\n";
+    sort(sums, sums+(n1*n2));
+    
+    // using these to deal with cases where there are duplicate sums
+    int count1 = 1, count2 = 0;
+    
+    for(int i = 0; i < k; i++) {
+        if(sums[i] == sums[i-1]) {
+            count1++;
         }
-        cout << "\n";
+        for(int j = 0; j < n1*n2; j++) {
+            
+            if(sums[i] == unsortedSums[j]) {
+                count2++;
+                if(count1 == count2) {
+                    cout << arr[j][0] << " " << arr[j][1] << endl;
+                }
+            }
+        }
+        count1 = 1;
+        count2 = 0;
     }
     
 }
