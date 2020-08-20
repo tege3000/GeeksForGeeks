@@ -12,6 +12,7 @@
 using namespace std;
 
 // first implementation - simple method
+// O(n1 * n2 * log (n1 * n2)) time
 void kPairsSmallestSums(int arr1[] , int arr2[], int n1, int n2, int k) {
     int arr[n1*n2][2];
     
