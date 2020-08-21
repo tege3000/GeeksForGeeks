@@ -14,21 +14,27 @@
 using namespace std;
 
 void kPairsSmallestAbsoluteDifferences(int arr[], int n, int k) {
-    vector <int> tmp;
-    for(int i = 0; i < n; i++) {
+    int size = n*(n-1)/2;
+    int tmp[size];
+    int start = 0;
+    for(int i = 0; i < n-1; i++) {
         for(int j = i+1; j < n; j++) {
-            tmp.push_back(abs(arr[i] - arr[j]));
+            tmp[start] = abs(arr[i] - arr[j]);
+            start++;
         }
     }
+    
+    sort(tmp, tmp+size);
     
     cout << tmp[k-1] << endl;
 }
 
 
 int main() {
-    int arr[] = {10, 10};
+    int arr[] = {1,2 ,3, 4};
     int n = sizeof(arr)/sizeof(arr[0]);
-    int k = 1;
+    int k = 3;
+
     
     kPairsSmallestAbsoluteDifferences(arr, n, k);
     return 0;
