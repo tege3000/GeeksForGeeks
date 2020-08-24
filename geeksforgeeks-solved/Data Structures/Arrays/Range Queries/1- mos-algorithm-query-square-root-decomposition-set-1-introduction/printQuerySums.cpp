@@ -12,19 +12,14 @@
 
 using namespace std;
 
-struct Query {
-    int left;
-    int right;
-};
-
 // first implementation
 // naive approach
 // O(mn) time
-void printQuerySums(int arr[], int n, struct Query q[], int m) {
+void printQuerySums(int arr[], int n, int q[][2], int m) {
     int a, b, sum;
     for(int i = 0; i < m; i++) {
-        a = q[i].left;
-        b = q[i].right;
+        a = q[i][0];
+        b = q[i][1];
         sum  = 0;
         
         for(int j = a; j < b+1; j++) {
@@ -41,7 +36,7 @@ int main() {
     int a[] = {1, 1, 2, 1, 3, 4, 5, 2, 8};
     int n = sizeof(a)/sizeof(a[0]);
     
-    struct Query q[] = {{0, 4}, {1, 3}, {2, 4}};
+    int q[3][2] = {{0, 4}, {1, 3}, {2, 4}};
     int m = sizeof(q)/sizeof(q[0]);
     printQuerySums(a, n, q, m);
     return 0;
