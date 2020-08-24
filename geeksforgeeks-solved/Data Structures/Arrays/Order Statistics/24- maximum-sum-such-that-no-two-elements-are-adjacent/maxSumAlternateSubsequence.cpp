@@ -17,6 +17,8 @@ using namespace std;
 
 // second approach
 // O(n) time
+// This approach is faster for larger input, 
+// but not as intuitive as the first implementation
 void maxSumAlternateSubsequence(int arr[], int n) {
     int a, b, b_new;
     
