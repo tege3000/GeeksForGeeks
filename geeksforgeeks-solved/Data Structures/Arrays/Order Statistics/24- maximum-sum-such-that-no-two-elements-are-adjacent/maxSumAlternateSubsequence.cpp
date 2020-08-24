@@ -15,23 +15,44 @@
 
 using namespace std;
 
+// second approach
+// O(n) time
 void maxSumAlternateSubsequence(int arr[], int n) {
-    int sum = 0, maxSum = 0;
-    for(int i = 0; i < n; i++) {
-        sum = 0;
-        for(int j = i; j < n; j=j+2) {
-            sum += arr[j];
-        }
-        maxSum = max(sum, maxSum);
-        
+    int a, b, b_new;
+    
+    a = arr[0];
+    b = 0;
+    b_new = 0;
+    
+    for(int i = 1; i < n; i++) {
+        b_new = max(a, b);
+        a = b + arr[i];
+        b = b_new;
     }
     
-    cout << "Output: " << maxSum << endl;
 
+    cout << "Ouptut: " << max(a, b) << endl;
 }
 
+//// first approach
+//// O(n) time
+//void maxSumAlternateSubsequence(int arr[], int n) {
+//    int sum = 0, maxSum = 0;
+//    for(int i = 0; i < n; i++) {
+//        sum = 0;
+//        for(int j = i; j < n; j=j+2) {
+//            sum += arr[j];
+//        }
+//        maxSum = max(sum, maxSum);
+//
+//    }
+//
+//    cout << "Output: " << maxSum << endl;
+//
+//}
+
 int main() {
-    int arr[] = {5,  5, 10, 40, 50, 35};
+    int arr[] = {1,20,3};
     int n = sizeof(arr)/sizeof(arr[0]);
     
     maxSumAlternateSubsequence(arr, n);
