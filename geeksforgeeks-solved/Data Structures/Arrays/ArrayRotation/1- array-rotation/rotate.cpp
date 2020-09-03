@@ -6,6 +6,7 @@
 // MY SOLUTION
 
 #include <iostream>
+using namespace std;
 
 void printArray(int arr[], int n) {
     for(int i = 0; i < n; i ++) {
@@ -15,7 +16,7 @@ void printArray(int arr[], int n) {
 
 
 // second attempt. Works in O(n) time
-void rotate(int arr[], int n, int k) {
+void rotate(int arr[], int k, int n) {
     int newArr[n];
     for(int i = 0; i < n; i++) {
         newArr[i] = arr[(k+i)%n];
@@ -37,14 +38,14 @@ void rotate(int arr[], int n, int k) {
 //     int el;
 //     for(int i = 0; i < d; i++) {
 //         el = arr[0];
-        
+
 //         for(int i = 0; i < n-1; i++) {
 //             arr[i] = arr[i+1];
 //         }
-        
+
 //         arr[n-1] = el;
 //     }
-//     printArray(arr, n);     
+//     printArray(arr, n);
 // }
 
 int main()
@@ -54,7 +55,8 @@ int main()
     n = sizeof(arr)/sizeof(arr[0]);
     d = 2; // d measures how far to rotate the array
     rotate(arr, d, n);
-    
+    printArray(arr, n);
     
     return 0;
 }
+
