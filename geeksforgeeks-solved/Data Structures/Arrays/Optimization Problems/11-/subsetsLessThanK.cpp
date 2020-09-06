@@ -35,10 +35,11 @@ int subsetLessThanK(int values[], int len, int k) {
     for(int i = 0; i < subsets.size(); i++) {
          int prod = 1;
         for(int j = 0; j < subsets[i].size(); j++) {
-             prod *= value;
+             prod *= subsets[i][j];
         }
         if(prod < k) {
             count++;
+            found = 1;
         }
         
     }
