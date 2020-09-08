@@ -1,6 +1,6 @@
 /*
  * Topic:
- * Size of The Subarray With Maximum Sum
+ * Size of The Consecutive Subarray With Maximum Sum
  *
  * Description:
  * An array is given, find length of the subarray
