@@ -12,33 +12,52 @@
 #include <iostream>
 using namespace std;
 
-// Efficient approach
+// Better approach
 // O(n) time
 void sortIt(int A[], int B[], int n, int m) {
-    int canBeSorted = 0;
     for(int i = 0; i < n; i++) {
-        int min_pos = distance(A, min_element(A+i, A+n));
-        
-        if(A[min_pos] != A[i]) {
-            if(B[i] == 1) {
-                swap(A[min_pos], A[i]);
-                canBeSorted = 1;
-            }
-            else {
-                canBeSorted = 0;
-                break;
+        if(B[i] == 1) {
+            if(A[i] > A[i+1]) {
+                swap(A[i], A[i+1]);
             }
         }
     }
-    
-    if(canBeSorted == 1) {
+
+    if(is_sorted(A, A+n)) {
         cout << "A can be sorted" << endl;
     }
     else {
         cout << "A cannot be sorted \n";
     }
-    
 }
+
+// Initial approach
+// O(n^2) time - because of the min_element function used
+//void sortIt(int A[], int B[], int n, int m) {
+//    int canBeSorted = 0;
+//    for(int i = 0; i < n; i++) {
+//        int min_pos = distance(A, min_element(A+i, A+n));
+//
+//        if(A[min_pos] != A[i]) {
+//            if(B[i] == 1) {
+//                swap(A[min_pos], A[i]);
+//                canBeSorted = 1;
+//            }
+//            else {
+//                canBeSorted = 0;
+//                break;
+//            }
+//        }
+//    }
+//
+//    if(canBeSorted == 1) {
+//        cout << "A can be sorted" << endl;
+//    }
+//    else {
+//        cout << "A cannot be sorted \n";
+//    }
+//
+//}
 
 
 
