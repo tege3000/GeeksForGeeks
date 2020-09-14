@@ -25,6 +25,9 @@ bool comp(pair<int, int> l, pair <int, int> r) {
 void sortByFreq(int arr[], int n) {
     
     vector<int> distinct;
+
+    // Im getting distinct elements this way
+    // because we have to maintain the order of elements
     for(int i = 0; i < n; i++) {
         if(find(distinct.begin(), distinct.end(), arr[i]) == distinct.end()) {
             distinct.push_back(arr[i]);
