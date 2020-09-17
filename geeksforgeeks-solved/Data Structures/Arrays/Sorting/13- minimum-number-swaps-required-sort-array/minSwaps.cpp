@@ -8,19 +8,39 @@
 #include <limits.h>
 
 using namespace std;
-// NOTE: This algorithm only works for distinct arrays whose
-// values are from 1...n
+
+// Second Implementation
+//
+// NOTE: This algorithm works on any kind of array
+// with values not necessarily ranging from 1..n
 int minSwaps(int arr[], int n) {
     int count = 0;
     for(int i = 0; i < n; i++) {
-        if(arr[i] != i+1) {
-            int pos = distance(arr, find(arr+i, arr+n, i+1));
+        int pos = distance(arr, min_element(arr+i, arr+n));
+        if(arr[i] != arr[pos]) {
             swap(arr[i], arr[pos]);
             count++;
         }
+      
     }
     return count;
 }
+
+// // First Implementation
+// //
+// // NOTE: This algorithm only works for distinct arrays whose
+// // values are from 1...n
+// int minSwaps(int arr[], int n) {
+//     int count = 0;
+//     for(int i = 0; i < n; i++) {
+//         if(arr[i] != i+1) {
+//             int pos = distance(arr, find(arr+i, arr+n, i+1));
+//             swap(arr[i], arr[pos]);
+//             count++;
+//         }
+//     }
+//     return count;
+// }
 
 int main()
 {
