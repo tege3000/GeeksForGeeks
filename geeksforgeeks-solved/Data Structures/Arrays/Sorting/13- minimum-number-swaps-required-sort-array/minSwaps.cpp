@@ -8,6 +8,8 @@
 #include <limits.h>
 
 using namespace std;
+// NOTE: This algorithm only works for distinct arrays whose
+// values are from 1...n
 int minSwaps(int arr[], int n) {
     int count = 0;
     for(int i = 0; i < n; i++) {
