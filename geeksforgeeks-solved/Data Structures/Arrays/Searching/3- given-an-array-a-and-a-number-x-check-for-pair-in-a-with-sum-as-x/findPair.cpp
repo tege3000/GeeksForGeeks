@@ -15,7 +15,7 @@ void findPair(int arr[], int n, int sum) {
     int left = 0, right = n-1;
     int found = 0;
     sort(arr, arr+n);
-    for(int i = 0; i < n; i++) {
+    while(left < right) {
         if(sum > arr[left] + arr[right]) {
             left++;
         }
