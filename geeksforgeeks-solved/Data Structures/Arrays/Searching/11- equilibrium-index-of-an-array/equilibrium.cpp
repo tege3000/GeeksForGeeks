@@ -11,26 +11,45 @@
 #include <numeric>
 using namespace std;
 
-// Initial approach
-// Works in O(n^2) time
+// More efficient approach, but less intuitive
+// Works in O(n) time
 int equilibrium(int arr[], int n) {
-    int leftSum = 0, rightSum = 0;
+    int leftSum = 0, sum = 0;
+    sum = accumulate(arr, arr+n, 0);
     
     for(int i = 0; i < n; i++) {
-        leftSum = 0;
-        rightSum = 0;
+        sum -= arr[i]; // now rightSum
         
-        leftSum = accumulate(arr, arr+i, 0);
-        rightSum = accumulate(arr+i+1, arr+n, 0);
-        
-        cout << leftSum << " " << rightSum << "\n";
-        if(leftSum == rightSum) {
+        if(sum == leftSum) {
             return i;
         }
+        
+        leftSum += arr[i];
     }
     
     return -1;
 }
+
+//// Initial approach
+//// Works in O(n^2) time
+//int equilibrium(int arr[], int n) {
+//    int leftSum = 0, rightSum = 0;
+//
+//    for(int i = 0; i < n; i++) {
+//        leftSum = 0;
+//        rightSum = 0;
+//
+//        leftSum = accumulate(arr, arr+i, 0);
+//        rightSum = accumulate(arr+i+1, arr+n, 0);
+//
+//        cout << leftSum << " " << rightSum << "\n";
+//        if(leftSum == rightSum) {
+//            return i;
+//        }
+//    }
+//
+//    return -1;
+//}
 
 int main() {
     int arr[] = {-7, 1, 5, 2, -4, 3, 0};
