@@ -11,6 +11,8 @@
 
 using namespace std;
 
+
+// Works in O(nlogn) time
 void majority(int arr[], int n) {
     int count = 1;
     sort(arr, arr+n);
