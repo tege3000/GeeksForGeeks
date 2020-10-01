@@ -13,17 +13,33 @@
 #include <iostream>
 using namespace std;
 
+// Better approach
+// Works in O(n) time
 void findRepeating(int arr[], int n) {
-    sort(arr, arr+n);
-    int count = 1;
+    int countArr[*max_element(arr, arr+n)];
     for(int i = 0; i < n; i++) {
-        if(arr[i] == arr[i+1]) {
+        countArr[arr[i]]++;
+        
+        if(countArr[arr[i]] == 2) {
             cout << arr[i] << " ";
         }
     }
-    
-    cout << "\n";
+
 }
+
+//// Initial implementation
+//// Works in O(nlogn) time
+//void findRepeating(int arr[], int n) {
+//    sort(arr, arr+n);
+//    int count = 1;
+//    for(int i = 0; i < n; i++) {
+//        if(arr[i] == arr[i+1]) {
+//            cout << arr[i] << " ";
+//        }
+//    }
+//
+//    cout << "\n";
+//}
 
 int main() {
     int arr[] = {4, 2, 4, 5, 2, 3, 1};
