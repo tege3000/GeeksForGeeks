@@ -15,6 +15,7 @@ bool findSubArray(int arr[], int n, int sum) {
         for(int j = i; j < n; j++) {
             sumOfEls = accumulate(arr+i, arr+j+1, 0);
             if(sumOfEls == sum) {
+                cout << "Sum found between " << i  << " and " << j << "\n";
                 return true;
             }
         }
@@ -26,12 +27,7 @@ int main() {
     int arr[] = {1, 4, 0, 0, 3, 10, 5};
     int n = sizeof(arr) / sizeof(arr[0]);
     int sum = 7;
-    int res = findSubArray(arr, n, sum);
-    if(res) {
-        cout << "Sum found" << "\n";
-    }
-    else {
-        cout << "There is no subarray with " << sum << " sum\n";
-    }
+    findSubArray(arr, n, sum);
+    
     return 0;
 }
