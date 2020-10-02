@@ -51,8 +51,9 @@ int main() {
     int arr[] = {-10, -1, 0, 3, 10, 11, 30, 50, 100};
     int n = sizeof(arr) / sizeof(arr[0]);
     
-    if(findFixedPoint(arr, n) != -1) {
-        cout << "Output: " << findFixedPoint(arr, n) << "\n";
+    int ans = findFixedPoint(arr, n);
+    if(ans != -1) {
+        cout << "Output: " << ans << "\n";
     }
     else {
         cout << "No fixed point\n";
