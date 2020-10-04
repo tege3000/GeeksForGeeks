@@ -21,6 +21,11 @@ void rotateMatrix(int arr[N][N]) {
     int row = 0, col = N-1;
     prev = arr[row][col];
     
+    // Right now this algorithm only rotates the first 
+    // group of 4 elements on the outermost edges of matrix
+    //
+    // TODO: find a  way to make this algorithm iterative 
+    // so as to rotate all values in the matrix.
     for(int i = 0; i < 4; i++) {
         if(i == 0 || i == 2) {
             col = abs(col - (N-1));
