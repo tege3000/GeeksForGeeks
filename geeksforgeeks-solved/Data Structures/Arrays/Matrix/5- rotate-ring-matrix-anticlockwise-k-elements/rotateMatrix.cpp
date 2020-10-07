@@ -1,9 +1,12 @@
 /*
  * Topic:
- * Rotate Matrix Elements
+ * Rotate each ring of matrix anticlockwise by K elements
  *
  * Description:
- * Given a matrix, clockwise rotate elements in it.
+ * Given a matrix of order M*N and a value K, the task is
+ * to rotate each ring of the matrix anticlockwise by K 
+ * elements. If in any ring elements are less than and equal
+ * K then don’t rotate it.
  */
 #include <iostream>
 #include <vector>
@@ -23,7 +26,7 @@ void printArr(int arr[Row][Col]) {
     }
 }
 
-void rotateMatrix(int arr[Row][Col]) {
+void rotateMatrix(int arr[Row][Col], int k) {
     
     for(int a = 0; a < (min(Row, Col))/2; a++) {
         vector<int> inner;
@@ -44,14 +47,8 @@ void rotateMatrix(int arr[Row][Col]) {
         }
         
 
-        // rotate right
-        // NOTE: In Cpp stl rotate works in an anticlockwise fashion.
-        // (It rotates left on default)
-        // 
-        // So when rotating clockwise, you have to rotate by 
-        // [len(array) - k] times to the left(anticlockwise), where k is 
-        // how many times you want to rotate to the right (clockwise)
-        rotate(inner.begin(), inner.begin()+(inner.size()-1), inner.end());
+        //rotate right
+        rotate(inner.begin(), inner.begin()+k, inner.end());
         
         // now populate array with new rotated values
         int start = 0;
@@ -99,7 +96,7 @@ int main() {
 //        {11, 12, 13, 14, 15},
 //        {16, 17, 18, 19, 20}
 //    };
-    
-    rotateMatrix(a);
+    int k = 3;
+    rotateMatrix(a, k);
     return 0;
 }
