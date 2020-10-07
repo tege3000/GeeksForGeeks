@@ -28,7 +28,7 @@ void rotateMatrix(int arr[N][N]) {
         for(int start = cycle; start < len; start++) {
             // Each cycle has 4 elements we have to rotate,
             // for each point in a matrix
-            // Hence, for each cycle we rotate by 4 * (N-1) times
+            // Hence, for each cycle we rotate each element 4 times to left
             // where N is the size of the cycle at that point
             // be it an inner or outer cycle.
             
