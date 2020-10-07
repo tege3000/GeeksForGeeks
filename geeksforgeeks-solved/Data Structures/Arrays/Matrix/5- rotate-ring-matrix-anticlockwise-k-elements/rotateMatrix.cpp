@@ -4,7 +4,7 @@
  *
  * Description:
  * Given a matrix of order M*N and a value K, the task is
- * to rotate each ring of the matrix anticlockwise by K 
+ * to rotate each ring of the matrix anticlockwise by K
  * elements. If in any ring elements are less than and equal
  * K then don’t rotate it.
  */
@@ -12,7 +12,7 @@
 #include <vector>
 
 // when using other test cases, change these values
-#define Row 4
+#define Row 3
 #define Col 4
 using namespace std;
 
@@ -46,8 +46,8 @@ void rotateMatrix(int arr[Row][Col], int k) {
             inner.push_back(arr[i][a]);
         }
         
-
-        //rotate right
+        
+        //rotate left by k
         rotate(inner.begin(), inner.begin()+k, inner.end());
         
         // now populate array with new rotated values
@@ -78,25 +78,23 @@ void rotateMatrix(int arr[Row][Col], int k) {
 }
 
 int main() {
-    // Test Case 1
-    int a[Row][Col] = { {1,  2,  3,  4},
-        {5,  6,  7,  8},
-        {9,  10, 11, 12},
-        {13, 14, 15, 16}  };
+//    // Test Case 1
+//    int a[Row][Col] = { {1,  2,  3,  4},
+//        {5,  6,  7,  8},
+//        {9,  10, 11, 12},
+//        {13, 14, 15, 16}  };
     
     // Tese Case 2
-//    int a[Row][Col] = {{1, 2, 3},
-//     {4, 5, 6},
-//     {7, 8, 9}
-//     };
+    //    int a[Row][Col] = {{1, 2, 3},
+    //     {4, 5, 6},
+    //     {7, 8, 9}
+    //     };
     
-//    // Test Case 3
-//    int a[Row][Col] = {{1, 2, 3, 4, 5},
-//        {6, 7, 8, 9, 10},
-//        {11, 12, 13, 14, 15},
-//        {16, 17, 18, 19, 20}
-//    };
-    int k = 3;
+    //    // Test Case 3
+    int a[Row][Col] = {{1, 2, 3, 4},
+        {10, 11, 12, 5},
+        {9, 8, 7, 6}};
+    int k = 2;
     rotateMatrix(a, k);
     return 0;
 }
