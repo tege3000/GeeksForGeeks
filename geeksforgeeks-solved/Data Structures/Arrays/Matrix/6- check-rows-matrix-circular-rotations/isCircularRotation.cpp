@@ -13,7 +13,7 @@
 #define N 3
 using namespace std;
 
-int isCircularRotation(int arr[N][N], int n) {
+int isCircularRotation(int arr[N][N]) {
     int passed = 0;
     for(int i = 0; i < N; i++) {
         int tmp[N];
