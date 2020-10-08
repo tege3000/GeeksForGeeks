@@ -34,7 +34,7 @@ int isCircularRotation(int arr[N][N]) {
                     break;
                 }
             }
-
+            
             if(allElEqual == 1) {
                 passed = 1;
                 break;
@@ -54,29 +54,30 @@ int isCircularRotation(int arr[N][N]) {
 }
 
 int main() {
-//    Test Case 1
-//    int mat[N][N] = {{1, 2, 3, 4},
-//        {4, 1, 2, 3},
-//        {3, 4, 1, 2},
-//        {2, 3, 4, 1}
-//    };
+    //    Test Case 1
+    //    int mat[N][N] = {{1, 2, 3, 4},
+    //        {4, 1, 2, 3},
+    //        {3, 4, 1, 2},
+    //        {2, 3, 4, 1}
+    //    };
     
-//    Test Case 2
+    //    Test Case 2
     int mat[N][N] = {
         {1, 2, 3},
         {3, 1, 2},
         {2, 3, 1}
     };
     
-//    Test Case 3
-//    int mat[N][N] = {
-//        {1, 2, 3},
-//        {3, 2, 1},
-//        {1, 3, 2}
-//    };
+    //    Test Case 3
+    //    int mat[N][N] = {
+    //        {1, 2, 3},
+    //        {3, 2, 1},
+    //        {1, 3, 2}
+    //    };
     
-    isCircularRotation(mat, N) == 1 ? cout << "Yes\n" : cout << "No\n";
+    isCircularRotation(mat) == 1 ? cout << "Yes\n" : cout << "No\n";
     
     return 0;
     
 }
+

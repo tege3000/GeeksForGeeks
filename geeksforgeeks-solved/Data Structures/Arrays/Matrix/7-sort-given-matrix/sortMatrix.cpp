@@ -11,8 +11,6 @@
  * last element of row 'i-1'.
  */
 #include <iostream>
-#include <algorithm>
-
 #define N 3
 using namespace std;
 
