@@ -12,6 +12,8 @@
 #define N 5
 using namespace std;
 
+// Initial Implementation
+// Works in O(n^3) time
 void findDistinctCommonEls(int arr[N][N]) {
     set <int> s1;
     
