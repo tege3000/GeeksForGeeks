@@ -1,6 +1,7 @@
 ## Arrays - Introduction
 
 In this subsection, you will find my solutions to problems from various sub-topics in the Array Data Structure.  
+
 Furthermore, in the initial stages these 3 questions were fundamental to my understanding of arrays.
 
 ## What are arrays?
