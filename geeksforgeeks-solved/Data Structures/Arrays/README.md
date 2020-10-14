@@ -1,12 +1,12 @@
 ## Arrays - Introduction
 
-In the initial stages these 3 questions are fundamental to our understanding of arrays.
+In the initial stages these 3 questions were fundamental to my understanding of arrays.
 
 ## What are arrays?
 - Arrays are collections of data elements stored at contiguous memory locations.
 - Arrays are typically used when we want to store a collection of elements of the same type.
 - Arrays are typically 0 indexed 
-- furthermore, it is key to note that arrays have fixed size.
+- Arrays have fixed size.
 
 ## When do we use arrays
 - Arrays are useful for fast retrieval of data elements if index of that element is already known.
