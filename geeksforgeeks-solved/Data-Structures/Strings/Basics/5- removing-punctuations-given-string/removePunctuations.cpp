@@ -12,7 +12,7 @@
 #include <iostream>
 using namespace std;
 
-// Secong approach - More Efficient
+// Initial approach - More Efficient
 string removePunctuations(string s) {
     // NOTE: HAD TO ADD ESCAPE CHARACTERS
     // FOR " AND \ IN THE PUNCTUATIONS STRING
