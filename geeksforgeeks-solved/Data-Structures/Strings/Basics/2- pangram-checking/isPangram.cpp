@@ -23,22 +23,23 @@ bool isPangram(string s) {
     string UPPER_ALPHABETS = "ABCDEFGHIJKLMONPQRSTUVWXYZ";
     
     
-    //TODO: Figure out algorithm
-    for(int i = 0; i < s.size(); i++) {
-        
+    for(int i = 0; i < LOWER_ALPHABETS.size(); i++) {
+        if(!((s.find(LOWER_ALPHABETS[i]) != -1) || (s.find(UPPER_ALPHABETS[i]) != -1))) {
+            return false;
+        }
     }
     
     return true;
 }
 
 int main() {
-    string s = "hello";
+    string s = "The quick brown fox jumps over the lazy dog";
     
     if(isPangram(s)) {
-        cout << "Yes\n";
+        cout << s << " IS a panagram\n";
     }
     else {
-        cout << "No\n";
+        cout << s << " IS NOT a panagram\n";
     }
     
     return 0;
