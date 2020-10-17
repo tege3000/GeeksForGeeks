@@ -28,6 +28,7 @@ bool isInt(string in) {
 
 int main() {
     
+    // were taking input as string
     string str = "122B";
     
     if(isInt(str)) {
