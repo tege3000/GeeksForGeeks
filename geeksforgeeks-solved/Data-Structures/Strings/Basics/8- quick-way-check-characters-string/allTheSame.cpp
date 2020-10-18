@@ -10,19 +10,32 @@
 #include <iostream>
 #include <set>
 using namespace std;
-
+// Second Method
+// seems like i was overdoing it by using sets in the first approach
 bool allTheSame(string s) {
-    set <char> s1;
     
     for(int i = 0; i < s.size(); i++) {
-        s1.insert(s[i]);
+        if(s[0] != s[i]) {
+            return false;
+        }
     }
     
-    if(s1.size() == 1) {
-        return true;
-    }
-    return false;
+    return true;
 }
+
+//// Initial Method
+//bool allTheSame(string s) {
+//    set <char> s1;
+//
+//    for(int i = 0; i < s.size(); i++) {
+//        s1.insert(s[i]);
+//    }
+//
+//    if(s1.size() == 1) {
+//        return true;
+//    }
+//    return false;
+//}
 
 int main() {
     
