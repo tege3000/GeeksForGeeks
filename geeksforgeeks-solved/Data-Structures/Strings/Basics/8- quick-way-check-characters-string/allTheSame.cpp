@@ -1,10 +1,7 @@
 /*
  * Topic:
- * Quick way to check if all the characters of a string are same *
+ * Quick way to check if all the characters of a string are same 
  * Description:
- * Write a function to check whether a given input is an integer or a string.
- *
- * In this context,
  * Given a string, check if all the characters of the string are same or not.
  */
 #include <iostream>
