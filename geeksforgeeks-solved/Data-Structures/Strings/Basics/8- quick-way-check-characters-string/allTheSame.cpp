@@ -10,8 +10,10 @@
 #include <iostream>
 #include <set>
 using namespace std;
+
 // Second Method
 // seems like i was overdoing it by using sets in the first approach
+// Works in O(n) time
 bool allTheSame(string s) {
     
     for(int i = 0; i < s.size(); i++) {
@@ -24,6 +26,7 @@ bool allTheSame(string s) {
 }
 
 //// Initial Method
+//// Works in O(nlogn) time
 //bool allTheSame(string s) {
 //    set <char> s1;
 //
