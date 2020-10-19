@@ -23,7 +23,6 @@ bool isInt(string in) {
     }
     
     return true;
-        
 }
 
 int main() {
