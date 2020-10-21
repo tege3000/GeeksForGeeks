@@ -8,7 +8,7 @@
 using namespace std;
 
 string cancatenateString(int n, string s) {
-    string result = "";
+    string result;
     
     for(int i = 0; i < n; i++) {
         result += s;
@@ -18,6 +18,6 @@ string cancatenateString(int n, string s) {
 }
 
 int main() {
-    
-    cout << cancatenateString(3, "geeks")<< "\n";
+    string s = "geeks";
+    cout << cancatenateString(3, s)<< "\n";
 }
