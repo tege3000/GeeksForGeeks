@@ -29,6 +29,7 @@ int sum(string s) {
         }
     }
     
+    // takes care of trailing numbers
     if(isdigit(s[s.size()-1])) {
         ans += stoi(nS);
     }
