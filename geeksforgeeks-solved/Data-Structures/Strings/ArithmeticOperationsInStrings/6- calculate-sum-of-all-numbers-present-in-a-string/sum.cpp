@@ -10,32 +10,41 @@
 using namespace std;
 int sum(string s) {
     int ans = 0;
-    int j = 0;
     
-    for(int i = 0; i < s.size(); i = j) {
-        string nS;
+    string nS;
+    for(int i = 0; i < s.size(); i++) {
         if(isdigit(s[i])) {
-            for(j = i; j < s.size(); j++) {
-                if(isalpha(s[j])) {
-                    break;
-                }
-                else {
-                    nS.push_back(s[j]);
-                }
-            }
-            
-            ans += stoi(nS);
+            nS.push_back(s[i]);
         }
         else {
-            j++;
+            if(i != 0) {
+                if(isalpha(s[i]) && isalpha(s[i-1])) {
+                    nS = "";
+                }
+                else {
+                    ans += stoi(nS);
+                    nS = "";
+                }
+            }
         }
+    }
+    
+    if(isdigit(s[s.size()-1])) {
+        ans += stoi(nS);
     }
     
     return ans;
 }
 
 int main() {
-    string s = "123abc";
+    string s1 = "1abc23";
+    string s2 = "geeks4geeks";
+    string s3 = "1abc2x30yz67";
+    string s4 = "123abc";
+
     
-    cout << sum(s) << "\n";
+    cout << sum(s1) << "\n";
+    cout << sum(s2) << "\n";
+    cout << sum(s3) << "\n";
+    cout << sum(s4) << "\n";
 }
