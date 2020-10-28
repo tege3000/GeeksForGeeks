@@ -9,7 +9,8 @@
 #include <iostream>
 using namespace std;
 /*
- * Idea: Since input number may be very large, we cannot use
+ * IDEA: 
+ * Since input number may be very large, we cannot use
  * n % 4 to check if a number is divisible by 4 or not,
  * especially in languages like C/C++. The idea is based on
  * following fact.
@@ -17,7 +18,7 @@ using namespace std;
  * A number is divisible by 4 if number formed by last two
  * digits of it is divisible by 4.
  * 
- * HOW IT WORKS
+ * HOW IT WORKS:
  * Let us consider 76952, we can write it as
  * 76942 = 7*10000 + 6*1000 + 9*100 + 5*10 + 2
  * 
@@ -33,7 +34,7 @@ using namespace std;
  * Therefore we can say that the whole number is 
  * divisible by 4 if 52 is divisible by 4.
  */
-bool isDivisible(string num, int n) {
+bool largeNumDivisibleBy4(string num, int n) {
     string lastTwoDigits;
     lastTwoDigits.push_back(num[n-2]);
     lastTwoDigits.push_back(num[n-1]);
@@ -51,7 +52,7 @@ int main() {
     string num = "1124";
     int n = num.size();
     
-    if(isDivisible(num, n)) {
+    if(largeNumDivisibleBy4(num, n)) {
         cout << "Yes\n";
     }
     else {
