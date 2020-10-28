@@ -17,14 +17,14 @@ using namespace std;
  * A number is divisible by 4 if number formed by last two
  * digits of it is divisible by 4.
  */
-bool isDivisible(string num, int n, int k) {
+bool isDivisible(string num, int n) {
     string lastTwoDigits;
     lastTwoDigits.push_back(num[n-2]);
     lastTwoDigits.push_back(num[n-1]);
     
     int numInt = stoi(lastTwoDigits);
     
-    if(numInt % k == 0) {
+    if(numInt % 4 == 0) {
         return true;
     }
     
@@ -34,9 +34,8 @@ bool isDivisible(string num, int n, int k) {
 int main() {
     string num = "1124";
     int n = num.size();
-    int k = 4;
     
-    if(isDivisible(num, n, k)) {
+    if(isDivisible(num, n)) {
         cout << "Yes\n";
     }
     else {
