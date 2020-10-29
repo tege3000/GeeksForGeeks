@@ -41,7 +41,7 @@ using namespace std;
  * between sum of even digits and odd digits.
  *
  */
-bool largeNumDivisibleBy11(string num, int n, int k) {
+bool largeNumDivisibleBy11(string num, int n) {
     string numS;
     int sumEvenPlaces = 0;
     int sumOddPlaces = 0;
@@ -66,9 +66,8 @@ bool largeNumDivisibleBy11(string num, int n, int k) {
 int main() {
     string num = "1234567589333892";
     int n = num.size();
-    int k = 11;
     
-    if(largeNumDivisibleBy11(num, n, k)) {
+    if(largeNumDivisibleBy11(num, n)) {
         cout << "Yes\n";
     }
     else {
