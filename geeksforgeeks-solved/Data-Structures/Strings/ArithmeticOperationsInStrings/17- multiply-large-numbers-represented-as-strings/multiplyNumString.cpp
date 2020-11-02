@@ -10,6 +10,10 @@
 #include <numeric>
 using namespace std;
 
+/*
+ * NOTE: This approach will not eork for BIG Integers
+ */
+
 int multiply(string num1, string num2) {
     string top, bottom;
     
