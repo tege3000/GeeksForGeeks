@@ -11,7 +11,8 @@
 using namespace std;
 
 /*
- * NOTE: This approach will not eork for BIG Integers
+ * NOTE: This approach will not work for BIG Integers
+ * TODO: Need to learn how do the same thing for larger numbers
  */
 
 int multiply(string num1, string num2) {
