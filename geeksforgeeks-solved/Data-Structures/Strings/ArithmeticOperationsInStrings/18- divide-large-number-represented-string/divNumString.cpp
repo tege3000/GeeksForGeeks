@@ -11,7 +11,7 @@
 #include <numeric>
 using namespace std;
 
-int divide(string dividend, string divisor) {
+string divide(string dividend, string divisor) {
     string quotient = "";
     string val;
     
@@ -25,7 +25,7 @@ int divide(string dividend, string divisor) {
             val = dividend.substr(0, count);
             continue;
         }
-
+        
         quotient.insert(start, to_string(stoi(val)/stoi(divisor)));
         
         
@@ -38,23 +38,24 @@ int divide(string dividend, string divisor) {
         
         start++;
     }
-
-    return stoi(quotient);
+    
+    return quotient;
 }
 
 int main() {
     string dividend1 = "157";
     string divisor1 = "2";
     cout << divide(dividend1, divisor1) << "\n";
-
     
     string dividend2  = "1260257";
     string divisor2 = "37";
     cout << divide(dividend2, divisor2) << "\n";
-
     
-    // TODO: MAKE CODE WORK FOR BIG INTEGER VALUES
-//    string dividend3  = "12313413534672234";
-//    string divisor3 = "754";
-//    cout << divide(dividend3, divisor3) << "\n";
+    string dividend3  = "12313413534672234";
+    string divisor3 = "754";
+    cout << divide(dividend3, divisor3) << "\n";
+    
+    string dividend4  = "1248163264128256512";
+    string divisor4 = "125";
+    cout << divide(dividend4, divisor4) << "\n";
 }
