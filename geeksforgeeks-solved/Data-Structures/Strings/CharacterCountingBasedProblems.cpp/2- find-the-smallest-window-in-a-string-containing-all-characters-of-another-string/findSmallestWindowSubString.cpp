@@ -10,7 +10,7 @@
 #include <limits.h>
 using namespace std;
 
-string findSubString(string s, string p) {
+string findSmallestWindowSubString(string s, string p) {
     int minSubs = INT_MAX;
     string ans = "";
     for(int i = 0; i < s.size(); i++) {
@@ -48,10 +48,10 @@ string findSubString(string s, string p) {
 int main() {
     string str = "this is a test string";
     string pat = "tist";
-    cout << "Smallest window is : " << findSubString(str, pat) << "\n";
+    cout << "Smallest window is : " << findSmallestWindowSubString(str, pat) << "\n";
     
     string str2 = "geeksforgeeks";
     string pat2 = "ork";
-    cout << "Smallest window is : " << findSubString(str2, pat2) << "\n";
+    cout << "Smallest window is : " << findSmallestWindowSubString(str2, pat2) << "\n";
 }
 
