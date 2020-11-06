@@ -10,6 +10,7 @@
 #include <limits.h>
 using namespace std;
 
+// Brute Force Solution
 string findSmallestWindowSubString(string s, string p) {
     int minSubs = INT_MAX;
     string ans = "";
