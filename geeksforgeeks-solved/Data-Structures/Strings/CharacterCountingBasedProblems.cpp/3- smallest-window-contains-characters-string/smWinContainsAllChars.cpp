@@ -1,10 +1,9 @@
 /*
- * Topic: Find the smallest window in a string containing all
- * characters of another string
+ * Topic: Smallest window that contains all characters of string itself
  *
- * Description: Given two strings string1 and string2, the task
- * is to find the smallest substring in string1 containing all
- * characters of string2 efficiently.
+ * Description: Given a string, find the smallest window length with all 
+ * distinct characters of the given string. For eg. str = “aabcbcdbca”, 
+ * then the result would be 4 as of the smallest window will be “dbca” .
  */
 #include <iostream>
 #include <limits.h>
