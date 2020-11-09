@@ -14,6 +14,8 @@
 #include <iostream>
 using namespace std;
 
+
+// Algorithm currently not working
 string decryptedString(string s, int k) {
     string res;
     string digits;
