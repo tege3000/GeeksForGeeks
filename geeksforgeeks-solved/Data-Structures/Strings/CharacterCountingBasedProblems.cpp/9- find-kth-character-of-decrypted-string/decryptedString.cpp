@@ -14,40 +14,56 @@
 #include <iostream>
 using namespace std;
 
-
-// Algorithm currently not working
-string decryptedString(string s, int k) {
+char decryptedString(string s, int k) {
     string res;
-    string digits;
     int firstIndex = 0;
     int lastIndex = 0;
     int digitLen = 0;
     for(int i = 0; i < s.size(); i++) {
         if(isdigit(s[i]) ) {
+            digitLen = 0;
+            string digits;
+
             for(int j = i; j < s.size(); j++) {
                 if(!isdigit(s[j])) {
                     break;
                 }
+                
                 digits.push_back(s[j]);
                 digitLen++;
             }
             
-            for(int j = 0; j < (s[i]-'0'); j++) {
-                res.insert(res.size()-1, s.substr(firstIndex, i));
+            for(int j = 0; j < stoi(digits); j++) {
+                for(int z = firstIndex; z < lastIndex; z++) {
+                    res.push_back(s[z]);
+                }
             }
             
-            lastIndex = 0;
-            firstIndex = i + digitLen;
+            i +=(digitLen-1);
+            firstIndex = i+1;
+            lastIndex += (digitLen-1);
         }
         lastIndex++;
     }
+    cout << "output " << res << endl;
     
-    return res;
+    return res[k-1];
 }
 
 int main() {
     string s = "ab4c12ed3";
     int k = 21;
+    cout << s << endl;
     cout << decryptedString(s, k) << "\n";
+    
+    string s2 = "a2b2c3";
+    int k2 = 5;
+    cout << s2 << endl;
+    cout << decryptedString(s2, k2) << "\n";
+
+    string s3 = "ab4c2ed3";
+    int k3 = 9;
+    cout << s3 << endl;
+    cout << decryptedString(s3, k3) << "\n";
 }
 
