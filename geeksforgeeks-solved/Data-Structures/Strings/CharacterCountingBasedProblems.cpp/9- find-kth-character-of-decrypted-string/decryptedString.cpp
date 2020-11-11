@@ -39,7 +39,7 @@ char decryptedString(string s, int k) {
                 }
             }
             
-            i +=(digitLen-1);
+            i += (digitLen-1);
             firstIndex = i+1;
             lastIndex += (digitLen-1);
         }
