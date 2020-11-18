@@ -10,6 +10,7 @@
 using namespace std;
 
 // for a string of numbers, get all subsequences
+// NOTE: This is a naive approach, learn better way later.
 vector <string> getAllSubsequences(string s) {
     vector<string> subsequences;
     
