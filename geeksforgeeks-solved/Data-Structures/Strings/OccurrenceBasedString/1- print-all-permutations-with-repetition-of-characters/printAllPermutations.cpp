@@ -10,38 +10,54 @@
 #include <vector>
 using namespace std;
 
-// TODO: Finish up algorithm
-vector<string> getPermutations(map<char, int> mp) {
-    vector<string> permutations;
-    
-    for(auto i : mp) {
-        char letter = i.first;
-        int count = i.second;
-        
+void printPermutations(vector<char> result) {
+    for(int i = 0; i < result.size(); i++) {
+        cout << result[i] << " ";
     }
-    
-    return permutations;
-    
+    cout << "\n";
 }
 
-void printPermutations(string s) {
+void getPermutations(string str, vector<int> count, vector<char> result, int level) {
+    if(level == result.size()) {
+        printPermutations(result);
+        return;
+    }
+    
+    for(int i = 0; i < str.size(); i++) {
+        // look for next available character with count of 1
+        if(count[i] == 0) {
+            continue;
+        }
+        
+        result[level] = str[i];
+        count[i]--;
+        getPermutations(str, count, result, level+1);
+        count[i]++;
+    }
+}
+
+void permutations(string s) {
     map<char, int> mp;
     
     for(int i = 0; i < s.size(); i++) {
         mp[s[i]]++;
     }
     
-    vector<string> permutations = getPermutations(mp);
+    string str;
+    vector<int> count;
     
-    for(int i = 0; i < permutations.size(); i++) {
-        cout << permutations[i] << endl;
+    for(auto i : mp) {
+        str.push_back(i.first);
+        count.push_back(i.second);
     }
+    
+    vector<char> result(s.size(), ' ');
+    
+    getPermutations(str, count, result, 0);
 }
 
-
-
 int main() {
-    string str = "AB";
+    string str = "ABC";
     
-    printPermutations(str);
+    permutations(str);
 }
