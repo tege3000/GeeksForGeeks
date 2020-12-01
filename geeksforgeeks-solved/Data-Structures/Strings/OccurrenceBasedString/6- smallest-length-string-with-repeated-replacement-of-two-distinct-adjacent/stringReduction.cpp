@@ -9,39 +9,45 @@
 #include <iostream>
 using namespace std;
 
-//stuck in reasoning... finish up later
-string stringReduction(string s) {
-    string ans;
-    
-    string fornow;
+bool allSame(string s) {
     for(int i = 0; i < s.size(); i++) {
-        if(i != 0) {
-            if(s[i] != fornow[i-1]) {
-                fornow.push_back(s[i]);
-                int start = 0;
-                char changeTo = ' ';
-                for(char j = 'a'; j <= 'c'; j++) {
-                    if(fornow[start] != j) {
-                        changeTo = j;
-                    }
-                    start++;
+        if(s[0] != s[i]) {
+            return false;
+        }
+    }
+    return true;
+}
+
+string stringReduction(string s) {
+    while(allSame(s) == false) {
+        for(int i = 0; i < s.size()-1; i++) {
+            if(s[i] != s[i+1]) {
+                char elToInsert = ' ';
+                if(s[i] != 'a' && s[i+1] != 'a') {
+                    elToInsert = 'a';
                 }
                 
+                if(s[i] != 'b' && s[i+1] != 'b') {
+                    elToInsert = 'b';
+                }
+                
+                if(s[i] != 'c' && s[i+1] != 'c') {
+                    elToInsert = 'c';
+                }
+                
+                s.erase(i, 2);
+                s.insert(s.begin()+i, elToInsert);
             }
             else {
-                fornow = s[i];
+                continue;
             }
-            
-        }
-        else {
-            fornow.push_back(s[i]);
         }
     }
     
-    return ans;
+    return s;
 }
 
 int main() {
     string str = "abcbbaacb";
-    cout << stringReduction(str);
+    cout << stringReduction(str).size() << endl;
 }
