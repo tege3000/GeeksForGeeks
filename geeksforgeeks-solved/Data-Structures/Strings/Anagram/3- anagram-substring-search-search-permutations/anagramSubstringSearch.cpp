@@ -13,47 +13,54 @@
 
 using namespace std;
 
-bool areAnagram(string s1, string s2) {
+bool areAnagram(string s1, string s2)
+{
     unordered_map<char, int> mp;
-    
-    for(int i = 0; i < s1.size(); i++) {
+
+    for (int i = 0; i < s1.size(); i++)
+    {
         mp[s1[i]]++;
     }
-    
-    set <char> distinct;
-    for(int i = 0; i < s2.size(); i++) {
+
+    set<char> distinct;
+    for (int i = 0; i < s2.size(); i++)
+    {
         distinct.insert(s2[i]);
     }
-    
-    for(auto i : distinct) {
-        if(count(s2.begin(), s2.end(), i) != mp[i]) {
+
+    for (auto i : distinct)
+    {
+        if (count(s2.begin(), s2.end(), i) != mp[i])
+        {
             return false;
         }
     }
-    
+
     return true;
 }
 
-void anagramSubstringSearch(string txt, string pat) {
-    for(int i = 0; i <= txt.size() - pat.size(); i++) {
-        if(areAnagram(txt.substr(i, pat.size()), pat)) {
+void anagramSubstringSearch(string txt, string pat)
+{
+    for (int i = 0; i <= txt.size() - pat.size(); i++)
+    {
+        if (areAnagram(txt.substr(i, pat.size()), pat))
+        {
             cout << "Found at Index " << i << "\n";
         }
     }
 }
 
-
-int main() {
+int main()
+{
     string txt = "BACDGABCDA";
     string pat = "ABCD";
-    
+
     anagramSubstringSearch(txt, pat);
     cout << "\n";
     string txt2 = "AAABABAA";
     string pat2 = "AABA";
-    
+
     anagramSubstringSearch(txt2, pat2);
-   
-    
+
     return 0;
 }
